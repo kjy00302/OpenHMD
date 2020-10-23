@@ -157,6 +157,15 @@ if _drivers.contains('vrtek')
 	deps += dep_hidapi
 endif
 
+if _drivers.contains('picorp')
+	sources += [
+		'src/drv_pico_real_plus/picorp.c',
+		'src/drv_pico_real_plus/packet.c',
+	]
+	c_args += '-DDRIVER_PICORP'
+	deps += dep_hidapi
+endif
+
 if _drivers.contains('external')
 	sources += [
 		'src/drv_external/external.c',
